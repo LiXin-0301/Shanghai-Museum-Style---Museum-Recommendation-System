@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间：找到所在的mapper接口的位置-->
+<mapper namespace="com.example.springboot.mapper.MuseumMapper">
+    <update id="update">
+        update museum
+        <set>
+            <if test="m_name != null">
+                m_name = #{m_name},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="open_time != null">
+                open_time = #{open_time},
+            </if>
+            <if test="m_intro != null">
+                m_intro = #{m_intro}
+            </if>
+        </set>
+        <where>
+            m_id = #{m_id}
+        </where>
+    </update>
+</mapper>
